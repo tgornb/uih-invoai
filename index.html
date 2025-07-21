@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvoAI - เปลี่ยนงานคีย์เอกสารบัญชีให้เป็นเรื่องอัตโนมัติด้วย AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Sarabun', 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: -webkit-linear-gradient(45deg, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold gradient-text">
+                InvoAI
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#features" class="text-gray-600 hover:text-blue-500">ฟีเจอร์</a>
+                <a href="#how-it-works" class="text-gray-600 hover:text-blue-500">วิธีการทำงาน</a>
+                <a href="#pricing" class="text-gray-600 hover:text-blue-500">ราคา</a>
+                <a href="#faq" class="text-gray-600 hover:text-blue-500">คำถามที่พบบ่อย</a>
+            </div>
+            <a href="#pricing" class="hidden md:block bg-blue-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-600 transition duration-300">
+                เริ่มต้นใช้งาน
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#features" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">ฟีเจอร์</a>
+            <a href="#how-it-works" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">วิธีการทำงาน</a>
+            <a href="#pricing" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">ราคา</a>
+            <a href="#faq" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">คำถามที่พบบ่อย</a>
+            <div class="p-4">
+                 <a href="#pricing" class="w-full text-center block bg-blue-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-600 transition duration-300">
+                    เริ่มต้นใช้งาน
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-white overflow-x-hidden">
+            <div class="container mx-auto px-6 py-20 md:py-32 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight" data-aos="fade-up">
+                    เปลี่ยนงานคีย์เอกสารบัญชี<br class="hidden md:block">ให้เป็นเรื่อง <span class="gradient-text">อัตโนมัติ</span>
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    InvoAI คือผู้ช่วย AI อัจฉริยะสำหรับทีมบัญชีไทย ช่วยสแกนและดึงข้อมูลจากใบกำกับภาษี ใบเสร็จรับเงิน เข้าระบบ Excel โดยอัตโนมัติ ลดเวลาทำงาน 90% ลดข้อผิดพลาด เพิ่มเวลาสำหรับงานวิเคราะห์
+                </p>
+                <div class="mt-8 flex justify-center space-x-4" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#pricing" class="bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600 transition duration-300 transform hover:scale-105">
+                        ทดลองใช้งานฟรี
+                    </a>
+                    <a href="#how-it-works" class="bg-white text-blue-500 font-bold py-3 px-8 rounded-lg text-lg border border-blue-500 hover:bg-blue-50 transition duration-300">
+                        ดูวิธีการทำงาน
+                    </a>
+                </div>
+                <div class="mt-16" data-aos="zoom-in" data-aos-delay="600">
+                    <a href="dashboard.html"> <img src="invo-dashboard.jpeg" alt="InvoAI Dashboard" class="mx-auto rounded-lg shadow-2xl"> </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section class="py-20 overflow-x-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-800" data-aos="fade-up">คุณกำลังเจอปัญหาเหล่านี้อยู่ใช่ไหม?</h2>
+                <p class="mt-4 text-gray-600" data-aos="fade-up" data-aos-delay="100">ทีมบัญชีของคุณต้องเสียเวลาไปกับงานที่ไม่ควรต้องทำ</p>
+                <div class="mt-12 grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-xl font-semibold text-red-500">เสียเวลาไปกับการคีย์ข้อมูล</h3>
+                        <p class="mt-2 text-gray-600">ต้องนั่งคีย์ข้อมูลจากเอกสารกองโตเข้าระบบทีละใบ ซ้ำซากและน่าเบื่อ</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-xl font-semibold text-red-500">ความผิดพลาดจาก Human Error</h3>
+                        <p class="mt-2 text-gray-600">คีย์ตัวเลขผิด, สลับช่อง, หรือข้อมูลตกหล่น ซึ่งอาจกระทบงบการเงิน</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="text-xl font-semibold text-red-500">ค้นหาเอกสารเก่าได้ยาก</h3>
+                        <p class="mt-2 text-gray-600">เมื่อต้องการตรวจสอบย้อนหลัง ต้องใช้เวลารื้อค้นจากแฟ้มเอกสารจำนวนมาก</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it Works Section -->
+        <section id="how-it-works" class="py-20 bg-white overflow-x-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-800" data-aos="fade-up">ทำงานง่ายๆ ใน 3 ขั้นตอน</h2>
+                <p class="mt-4 text-gray-600" data-aos="fade-up" data-aos-delay="100">เปลี่ยนเอกสารกระดาษให้เป็นข้อมูลดิจิทัล พร้อมใช้งานทันที</p>
+                <div class="mt-12 grid md:grid-cols-3 gap-8 text-left relative">
+                    <!-- Connecting line -->
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 -translate-y-1/2">
+                        <svg width="100%" height="100%">
+                            <line x1="0" y1="50%" x2="100%" y2="50%" stroke="#d1d5db" stroke-width="2" stroke-dasharray="8 8"/>
+                        </svg>
+                    </div>
+                    <div class="relative bg-white p-8 rounded-lg shadow-lg border-t-4 border-blue-500 z-10" data-aos="fade-right" data-aos-delay="200">
+                        <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">1</div>
+                        <h3 class="mt-6 text-xl font-semibold">เชื่อมต่อ Mailbox กลาง</h3>
+                        <p class="mt-2 text-gray-600">เชื่อมต่อกับ Mailbox ที่ใช้รับเอกสาร AI จะคอยคัดกรองและแยกประเภทเอกสารจากอีเมลให้คุณอัตโนมัติ</p>
+                    </div>
+                    <div class="relative bg-white p-8 rounded-lg shadow-lg border-t-4 border-blue-500 z-10" data-aos="fade-up" data-aos-delay="300">
+                        <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">2</div>
+                        <h3 class="mt-6 text-xl font-semibold">AI สกัดข้อมูลอัตโนมัติ</h3>
+                        <p class="mt-2 text-gray-600">InvoAI ใช้ AI Agent อัจฉริยะที่ถูกฝึกฝนมาเพื่อเอกสารไทยโดยเฉพาะในการทำความเข้าใจและดึงข้อมูล</p>
+                    </div>
+                    <div class="relative bg-white p-8 rounded-lg shadow-lg border-t-4 border-blue-500 z-10" data-aos="fade-left" data-aos-delay="400">
+                        <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">3</div>
+                        <h3 class="mt-6 text-xl font-semibold">ตรวจสอบและ Export</h3>
+                        <p class="mt-2 text-gray-600">ตรวจสอบความถูกต้องบนหน้าจอเปรียบเทียบ แล้ว Export เป็นไฟล์ Excel พร้อมนำเข้า ERP</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- NEW: Helix AI Insights Section -->
+        <section class="py-20 bg-gray-100 overflow-x-hidden">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-left">
+                        <h2 class="text-3xl font-bold text-gray-800">ก้าวไปอีกขั้นสู่ <span class="gradient-text">ข้อมูลเชิงลึก</span></h2>
+                        <h3 class="text-xl font-semibold text-blue-600 mt-2">บริการเสริม: Helix AI Insights</h3>
+                        <p class="mt-4 text-lg text-gray-600">
+                            เปลี่ยนข้อมูลค่าใช้จ่ายธรรมดาให้กลายเป็นขุมทรัพย์ทางธุรกิจด้วย Helix AI Insights ผู้ช่วยวิเคราะห์ข้อมูลสำหรับผู้บริหารโดยเฉพาะ
+                        </p>
+                        <ul class="mt-6 space-y-3">
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-3 mt-1">✓</span>
+                                <span><span class="font-semibold">วิเคราะห์แนวโน้มค่าใช้จ่าย:</span> เห็นภาพรวมการใช้จ่ายของบริษัท แยกตามซัพพลายเออร์ แผนก หรือประเภทค่าใช้จ่าย</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-3 mt-1">✓</span>
+                                <span><span class="font-semibold">ตรวจจับความผิดปกติ:</span> AI ช่วยแจ้งเตือนรายการที่น่าสงสัย เช่น การจ่ายเงินซ้ำซ้อน หรือค่าใช้จ่ายที่สูงผิดปกติ</span>
+                            </li>
+                             <li class="flex items-start">
+                                <span class="text-green-500 mr-3 mt-1">✓</span>
+                                <span><span class="font-semibold">ตัดสินใจได้เฉียบคม:</span> ใช้ข้อมูลจริงในการวางแผนงบประมาณและควบคุมต้นทุนได้อย่างมีประสิทธิภาพ</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-aos="fade-right" data-aos-delay="200">
+                        <a href="ai-dashboard.html"> <img src="invo-helix-ai.jpeg" alt="Helix AI Insights Dashboard" class="rounded-lg shadow-xl w-full"> </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-800" data-aos="fade-up">ฟีเจอร์ทรงพลังสำหรับทุกคนในทีม</h2>
+                <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-lg font-semibold">เชื่อมต่ออีเมลอัตโนมัติ</h3>
+                        <p class="mt-2 text-gray-600">ไม่ต้องคอยดาวน์โหลดไฟล์ InvoAI ดึงเอกสารจากอีเมลทีมบัญชีให้เอง</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-lg font-semibold">AI แม่นยำเพื่อเอกสารไทย</h3>
+                        <p class="mt-2 text-gray-600">เข้าใจรูปแบบใบกำกับภาษี ใบเสร็จ และใบหัก ณ ที่จ่ายของไทยโดยเฉพาะ</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-lg font-semibold">Dashboard ตรวจสอบง่าย</h3>
+                        <p class="mt-2 text-gray-600">หน้าจอเปรียบเทียบเอกสารต้นฉบับกับข้อมูลที่ AI ดึงมา แก้ไขได้ทันที</p>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-lg font-semibold">Export เป็น Excel ได้ทันใจ</h3>
+                        <p class="mt-2 text-gray-600">สร้างเทมเพลต Excel ที่พร้อมนำเข้าโปรแกรมบัญชีหรือ ERP ของคุณได้เลย</p>
+                    </div>
+                    <!-- Feature 5 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-lg font-semibold">จัดการสิทธิ์ผู้ใช้งาน</h3>
+                        <p class="mt-2 text-gray-600">กำหนดบทบาทและสิทธิ์การเข้าถึงข้อมูลของแต่ละคนในทีมได้อย่างปลอดภัย</p>
+                    </div>
+                    <!-- Feature 6 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-lg font-semibold">ปลอดภัยและเป็นไปตาม PDPA</h3>
+                        <p class="mt-2 text-gray-600">เราให้ความสำคัญกับความปลอดภัยของข้อมูลคุณเป็นอันดับแรก</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UIH Helix DNA Section -->
+        <section class="py-20 bg-gray-800 text-white overflow-x-hidden">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="text-3xl font-bold">สร้างบนรากฐานเทคโนโลยีระดับ Enterprise</h2>
+                        <p class="mt-4 text-lg text-gray-300">
+                            InvoAI ขับเคลื่อนด้วย <span class="font-bold text-blue-400">UIH Helix DNA</span> ซึ่งเป็นแนวคิด Singularity Stack จาก UIH ที่ผสานโครงสร้างพื้นฐานดิจิทัลที่แข็งแกร่งเข้ากับเทคโนโลยี AI ชั้นนำ
+                        </p>
+                        <p class="mt-4 text-gray-400">
+                            นี่คือสิ่งที่ทำให้คุณมั่นใจได้ในประสิทธิภาพ ความเสถียร และความปลอดภัยสูงสุดของบริการเรา พร้อมรองรับการเติบโตของธุรกิจคุณในทุกย่างก้าว
+                        </p>
+                        <ul class="mt-6 space-y-3">
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-3 mt-1">✓</span>
+                                <span><span class="font-semibold">เสถียรภาพสูง:</span> ทำงานบน Cloud Infrastructure ที่เชื่อถือได้</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-3 mt-1">✓</span>
+                                <span><span class="font-semibold">ปลอดภัยสูงสุด:</span> มาตรฐานความปลอดภัยระดับองค์กร</span>
+                            </li>
+                             <li class="flex items-start">
+                                <span class="text-blue-400 mr-3 mt-1">✓</span>
+                                <span><span class="font-semibold">พร้อมขยายตัว:</span> สถาปัตยกรรมที่รองรับการใช้งานที่เพิ่มขึ้นในอนาคต</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-aos="fade-left" data-aos-delay="200">
+                        <img src="https://placehold.co/600x400/1E40AF/FFFFFF?text=UIH+Helix+DNA" alt="UIH Helix DNA Singularity Stack" class="rounded-lg shadow-xl w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-800" data-aos="fade-up">เลือกแผนที่ใช่สำหรับธุรกิจคุณ</h2>
+                <p class="mt-4 text-gray-600" data-aos="fade-up" data-aos-delay="100">เริ่มต้นได้ง่ายๆ วันนี้ ทดลองใช้ฟรี 14 วัน ไม่ต้องใช้บัตรเครดิต</p>
+                <div class="mt-12 grid lg:grid-cols-3 gap-8">
+                    <!-- Plan 1: Starter -->
+                    <div class="bg-white border rounded-lg p-8 flex flex-col" data-aos="zoom-in-up" data-aos-delay="200">
+                        <h3 class="text-2xl font-semibold">Starter</h3>
+                        <p class="mt-2 text-gray-600">สำหรับฟรีแลนซ์และธุรกิจเริ่มต้น</p>
+                        <p class="mt-6 text-4xl font-bold">฿990<span class="text-lg font-normal text-gray-500">/เดือน</span></p>
+                        <ul class="mt-8 space-y-4 text-left">
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 150 เอกสาร/เดือน</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 2 ผู้ใช้งาน</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> เชื่อมต่ออีเมล</li>
+                        </ul>
+                        <a href="#" class="mt-auto w-full bg-white text-blue-500 font-bold py-3 px-6 rounded-lg border border-blue-500 hover:bg-blue-50 transition duration-300">เลือกแผนนี้</a>
+                    </div>
+                    <!-- Plan 2: Pro (Most Popular) -->
+                    <div class="bg-white border-2 border-blue-500 rounded-lg p-8 flex flex-col relative shadow-2xl transform hover:scale-105 transition duration-300" data-aos="zoom-in-up" data-aos-delay="300">
+                        <p class="absolute top-0 -translate-y-1/2 bg-blue-500 text-white text-sm font-semibold px-4 py-1 rounded-full">ยอดนิยม</p>
+                        <h3 class="text-2xl font-semibold">Pro</h3>
+                        <p class="mt-2 text-gray-600">สำหรับธุรกิจ SMEs และทีมบัญชี</p>
+                        <p class="mt-6 text-4xl font-bold">฿1990<span class="text-lg font-normal text-gray-500">/เดือน</span></p>
+                        <ul class="mt-8 space-y-4 text-left">
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 500 เอกสาร/เดือน</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 5 ผู้ใช้งาน</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> เชื่อมต่ออีเมล</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> จัดการสิทธิ์ผู้ใช้งาน</li>
+                        </ul>
+                        <a href="#" class="mt-auto w-full bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition duration-300">เลือกแผนนี้</a>
+                    </div>
+                    <!-- Plan 3: Enterprise -->
+                    <div class="bg-white border rounded-lg p-8 flex flex-col" data-aos="zoom-in-up" data-aos-delay="400">
+                        <h3 class="text-2xl font-semibold">Enterprise</h3>
+                        <p class="mt-2 text-gray-600">สำหรับองค์กรขนาดใหญ่</p>
+                        <p class="mt-6 text-4xl font-bold">ติดต่อเรา</p>
+                        <ul class="mt-8 space-y-4 text-left">
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> ไม่จำกัดเอกสาร</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> ไม่จำกัดผู้ใช้งาน</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> ทุกฟีเจอร์ของ Pro</li>
+                            <li class="flex items-center font-bold text-blue-600"><span class="text-blue-600 mr-2">✔</span> Helix AI Insights</li>
+                        </ul>
+                        <a href="#" class="mt-auto w-full bg-white text-blue-500 font-bold py-3 px-6 rounded-lg border border-blue-500 hover:bg-blue-50 transition duration-300">ติดต่อฝ่ายขาย</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 bg-white overflow-x-hidden">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl font-bold text-center text-gray-800" data-aos="fade-up">คำถามที่พบบ่อย</h2>
+                <div class="mt-12 space-y-6">
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-lg font-semibold">Helix AI Insights คืออะไร?</h3>
+                        <p class="mt-2 text-gray-600">เป็นบริการเสริมสำหรับผู้บริหาร ที่ใช้ AI ช่วยวิเคราะห์ข้อมูลค่าใช้จ่ายทั้งหมดที่ประมวลผลผ่าน InvoAI เพื่อให้เห็นภาพรวมทางธุรกิจ ตรวจจับรายการผิดปกติ และช่วยในการตัดสินใจเชิงกลยุทธ์ มีให้บริการในแผน Enterprise</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-lg font-semibold">InvoAI รองรับเอกสารอะไรบ้าง?</h3>
+                        <p class="mt-2 text-gray-600">เรารองรับเอกสารบัญชีพื้นฐานของไทย ได้แก่ ใบกำกับภาษี (Invoice), ใบเสร็จรับเงิน (Receipt), และกำลังพัฒนาสำหรับใบหัก ณ ที่จ่าย (Withholding Tax Certificate)</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-lg font-semibold">ข้อมูลของฉันปลอดภัยหรือไม่?</h3>
+                        <p class="mt-2 text-gray-600">ปลอดภัยแน่นอนครับ เราใช้การเข้ารหัสข้อมูลมาตรฐานสูงสุดทั้งระหว่างการส่งและจัดเก็บ และปฏิบัติตาม พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล (PDPA) อย่างเคร่งครัด</p>
+                    </div>
+                     <div data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="text-lg font-semibold">ถ้า AI ดึงข้อมูลผิดพลาดจะทำอย่างไร?</h3>
+                        <p class="mt-2 text-gray-600">คุณสามารถแก้ไขข้อมูลได้ง่ายๆ บนหน้าจอตรวจสอบ และทุกครั้งที่คุณแก้ไข ระบบจะเรียนรู้เพื่อทำให้การทำงานครั้งต่อไปแม่นยำยิ่งขึ้น</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="bg-blue-600">
+            <div class="container mx-auto px-6 py-20 text-center">
+                <h2 class="text-3xl font-bold text-white" data-aos="zoom-in">พร้อมที่จะปฏิวัติการทำงานบัญชีของคุณแล้วหรือยัง?</h2>
+                <p class="mt-4 text-blue-200 max-w-2xl mx-auto" data-aos="zoom-in" data-aos-delay="100">เข้าร่วมกับธุรกิจชั้นนำที่เลือกใช้ InvoAI เพื่อเพิ่มประสิทธิภาพและลดต้นทุน เริ่มต้นวันนี้ด้วยการทดลองใช้ฟรี</p>
+                <div class="mt-8" data-aos="zoom-in" data-aos-delay="200">
+                    <a href="#pricing" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                        เริ่มต้นใช้งานฟรี 14 วัน
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p class="text-xl font-bold gradient-text">InvoAI</p>
+            <p class="mt-4 text-gray-400">&copy; 2025 United Information Highway Co., Ltd. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white">นโยบายความเป็นส่วนตัว</a>
+                <a href="#" class="text-gray-400 hover:text-white">ข้อตกลงการใช้งาน</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800, // values from 0 to 3000, with step 50ms
+            once: true, // whether animation should happen only once - while scrolling down
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvoAI Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Sarabun', 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            color: #4b5563;
+            transition: all 0.2s ease-in-out;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background-color: #e0f2fe;
+            color: #0284c7;
+            font-weight: 600;
+        }
+        .sidebar-link i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="flex h-screen bg-gray-100">
+        <!-- Sidebar -->
+        <aside class="w-64 flex-shrink-0 bg-white border-r border-gray-200 flex flex-col">
+            <div class="h-16 flex items-center justify-center border-b border-gray-200">
+                <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-emerald-500">
+                    InvoAI
+                </h1>
+            </div>
+            <nav class="flex-1 px-4 py-6 space-y-2">
+                <a href="#" class="sidebar-link active">
+                    <i class="ph-fill ph-gauge"></i>
+                    <span>ภาพรวม</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i class="ph-fill ph-files"></i>
+                    <span>เอกสารทั้งหมด</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i class="ph-fill ph-arrow-fat-line-up"></i>
+                    <span>อัปโหลด</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i class="ph-fill ph-chart-bar"></i>
+                    <span>รายงาน</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i class="ph-fill ph-gear"></i>
+                    <span>ตั้งค่า</span>
+                </a>
+            </nav>
+            <div class="px-6 py-4 border-t border-gray-200">
+                <div class="flex items-center">
+                    <img class="h-10 w-10 rounded-full object-cover" src="https://placehold.co/100x100/A7F3D0/14532D?text=S" alt="User avatar">
+                    <div class="ml-3">
+                        <p class="text-sm font-semibold text-gray-800">สมศรี เก่งมาก</p>
+                        <p class="text-xs text-gray-500">หัวหน้าทีมบัญชี</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-8">
+                <div>
+                    <h2 class="text-xl font-semibold">ภาพรวม Dashboard</h2>
+                    <p class="text-sm text-gray-500" id="current-date"></p>
+                </div>
+                <div>
+                    <button class="flex items-center bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">
+                        <i class="ph-bold ph-plus-circle mr-2 text-xl"></i>
+                        <span>อัปโหลดเอกสาร</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content Body -->
+            <div class="flex-1 overflow-y-auto p-8">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-yellow-100 text-yellow-600">
+                                <i class="ph-bold ph-hourglass-medium text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500">เอกสารรอตรวจสอบ</p>
+                                <p class="text-2xl font-bold">12</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-green-100 text-green-600">
+                                <i class="ph-bold ph-check-circle text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500">ประมวลผลวันนี้</p>
+                                <p class="text-2xl font-bold">86</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-blue-100 text-blue-600">
+                                <i class="ph-bold ph-target text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500">ความแม่นยำเฉลี่ย</p>
+                                <p class="text-2xl font-bold">98.7%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-indigo-100 text-indigo-600">
+                                <i class="ph-bold ph-timer text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500">เวลาที่ประหยัดได้ (ชม.)</p>
+                                <p class="text-2xl font-bold">~15.2</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="font-semibold mb-4">เอกสารที่ประมวลผลรายวัน (7 วันล่าสุด)</h3>
+                        <canvas id="dailyDocsChart"></canvas>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="font-semibold mb-4">ประเภทเอกสาร</h3>
+                         <canvas id="docTypeChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Documents Table -->
+                <div class="mt-8 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="font-semibold">เอกสารล่าสุด</h3>
+                    </div>
+                    <table class="w-full text-sm text-left text-gray-500">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">ชื่อไฟล์ / ซัพพลายเออร์</th>
+                                <th scope="col" class="px-6 py-3">ยอดรวม</th>
+                                <th scope="col" class="px-6 py-3">วันที่เอกสาร</th>
+                                <th scope="col" class="px-6 py-3">สถานะ</th>
+                                <th scope="col" class="px-6 py-3"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b">
+                                <td class="px-6 py-4 font-medium text-gray-900">
+                                    INV-2025-07-001.pdf
+                                    <p class="text-xs text-gray-500">บริษัท ยูไนเต็ด อินฟอร์เมชั่น ไฮเวย์ จำกัด</p>
+                                </td>
+                                <td class="px-6 py-4">฿12,500.00</td>
+                                <td class="px-6 py-4">20 ก.ค. 2568</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">ตรวจสอบแล้ว</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <a href="#" class="font-medium text-blue-600 hover:underline">ดูรายละเอียด</a>
+                                </td>
+                            </tr>
+                             <tr class="bg-white border-b">
+                                <td class="px-6 py-4 font-medium text-gray-900">
+                                    receipt-office-supply.jpg
+                                    <p class="text-xs text-gray-500">บริษัท abc office (ไทย) จำกัด</p>
+                                </td>
+                                <td class="px-6 py-4">฿3,450.50</td>
+                                <td class="px-6 py-4">19 ก.ค. 2568</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800">รอตรวจสอบ</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <a href="#" class="font-medium text-blue-600 hover:underline">ตรวจสอบ</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <td class="px-6 py-4 font-medium text-gray-900">
+                                    invoice-marketing-agency.pdf
+                                    <p class="text-xs text-gray-500">บริษัท abc ดิจิทัล เอเจนซี่ จำกัด</p>
+                                </td>
+                                <td class="px-6 py-4">฿55,000.00</td>
+                                <td class="px-6 py-4">18 ก.ค. 2568</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">ตรวจสอบแล้ว</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <a href="#" class="font-medium text-blue-600 hover:underline">ดูรายละเอียด</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="px-6 py-4 font-medium text-gray-900">
+                                    scan_004.png
+                                    <p class="text-xs text-gray-500">ไม่ระบุ</p>
+                                </td>
+                                <td class="px-6 py-4">฿890.00</td>
+                                <td class="px-6 py-4">18 ก.ค. 2568</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800">เกิดข้อผิดพลาด</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <a href="#" class="font-medium text-blue-600 hover:underline">แก้ไข</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Set current date
+        const dateElement = document.getElementById('current-date');
+        const today = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        dateElement.textContent = today.toLocaleDateString('th-TH', options);
+
+        // Chart.js implementation
+        const dailyDocsCtx = document.getElementById('dailyDocsChart').getContext('2d');
+        const dailyDocsChart = new Chart(dailyDocsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['15 ก.ค.', '16 ก.ค.', '17 ก.ค.', '18 ก.ค.', '19 ก.ค.', '20 ก.ค.', 'วันนี้'],
+                datasets: [{
+                    label: 'จำนวนเอกสาร',
+                    data: [65, 59, 80, 81, 75, 90, 86],
+                    backgroundColor: 'rgba(59, 130, 246, 0.5)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    borderWidth: 1,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        const docTypeCtx = document.getElementById('docTypeChart').getContext('2d');
+        const docTypeChart = new Chart(docTypeCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['ใบกำกับภาษี', 'ใบเสร็จรับเงิน', 'ใบหัก ณ ที่จ่าย'],
+                datasets: [{
+                    label: 'ประเภทเอกสาร',
+                    data: [125, 90, 30],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(16, 185, 129, 0.7)',
+                        'rgba(245, 158, 11, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(16, 185, 129, 1)',
+                        'rgba(245, 158, 11, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

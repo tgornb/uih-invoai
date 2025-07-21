@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helix AI Insights Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Sarabun', 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            color: #4b5563;
+            transition: all 0.2s ease-in-out;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background-color: #e0f2fe;
+            color: #0284c7;
+            font-weight: 600;
+        }
+        .sidebar-link i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="flex h-screen bg-gray-100">
+        <!-- Sidebar -->
+        <aside class="w-64 flex-shrink-0 bg-white border-r border-gray-200 flex flex-col">
+            <div class="h-16 flex items-center justify-center border-b border-gray-200">
+                <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-emerald-500">
+                    InvoAI
+                </h1>
+            </div>
+            <nav class="flex-1 px-4 py-6 space-y-2">
+                <a href="#" class="sidebar-link">
+                    <i class="ph-fill ph-gauge"></i>
+                    <span>ภาพรวมบัญชี</span>
+                </a>
+                <a href="#" class="sidebar-link active">
+                    <i class="ph-fill ph-brain"></i>
+                    <span>Helix AI Insights</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i class="ph-fill ph-files"></i>
+                    <span>เอกสารทั้งหมด</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i class="ph-fill ph-chart-bar"></i>
+                    <span>รายงาน</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i class="ph-fill ph-gear"></i>
+                    <span>ตั้งค่า</span>
+                </a>
+            </nav>
+            <div class="px-6 py-4 border-t border-gray-200">
+                <div class="flex items-center">
+                    <img class="h-10 w-10 rounded-full object-cover" src="https://placehold.co/100x100/FBCFE8/831843?text=W" alt="User avatar">
+                    <div class="ml-3">
+                        <p class="text-sm font-semibold text-gray-800">วิชัย มีวิสัยทัศน์</p>
+                        <p class="text-xs text-gray-500">ผู้บริหาร (CEO)</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-8">
+                <div>
+                    <h2 class="text-xl font-semibold">Helix AI Insights</h2>
+                    <p class="text-sm text-gray-500">ผู้ช่วยวิเคราะห์ข้อมูลสำหรับผู้บริหาร</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-gray-600">ช่วงข้อมูล:</span>
+                    <select class="border border-gray-300 rounded-md py-1 px-3 text-sm">
+                        <option>ไตรมาสนี้</option>
+                        <option>30 วันล่าสุด</option>
+                        <option>ปีนี้</option>
+                        <option>กำหนดเอง</option>
+                    </select>
+                </div>
+            </header>
+
+            <!-- Content Body -->
+            <div class="flex-1 overflow-y-auto p-8">
+                <!-- Key Insights Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-sm text-gray-500">ค่าใช้จ่ายรวม (ไตรมาสนี้)</p>
+                        <p class="text-3xl font-bold mt-2">฿1,845,900</p>
+                        <p class="text-sm text-green-600 mt-1 flex items-center">
+                            <i class="ph-bold ph-arrow-down mr-1"></i> 5.2% จากไตรมาสก่อน
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-sm text-gray-500">ซัพพลายเออร์ที่จ่ายสูงสุด</p>
+                        <p class="text-xl font-bold mt-2 truncate">บริษัท ครีเอทีฟ ดิจิทัล เอเจนซี่ จำกัด</p>
+                        <p class="text-sm text-gray-500 mt-1">฿250,000</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-sm text-gray-500">รายการที่อาจผิดปกติ</p>
+                        <p class="text-3xl font-bold mt-2 text-red-600">3</p>
+                        <p class="text-sm text-gray-500 mt-1">รอการตรวจสอบ</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-sm text-gray-500">โอกาสในการประหยัด</p>
+                        <p class="text-3xl font-bold mt-2 text-blue-600">~฿45,000</p>
+                        <p class="text-sm text-gray-500 mt-1">จากการต่อรองราคาซัพพลายเออร์</p>
+                    </div>
+                </div>
+
+                <!-- Main Charts -->
+                <div class="mt-8 grid grid-cols-1 lg:grid-cols-5 gap-6">
+                    <div class="lg:col-span-3 bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="font-semibold mb-4">แนวโน้มค่าใช้จ่าย (รายเดือน)</h3>
+                        <div class="h-80"><canvas id="spendingTrendChart"></canvas></div>
+                    </div>
+                    <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="font-semibold mb-4">ค่าใช้จ่ายตามหมวดหมู่</h3>
+                        <div class="h-80"><canvas id="spendingCategoryChart"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- Anomaly Detection Table -->
+                <div class="mt-8 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="p-6 border-b">
+                        <h3 class="font-semibold text-red-600 flex items-center"><i class="ph-bold ph-warning-circle mr-2"></i>รายการที่ต้องตรวจสอบ (Anomaly Detection)</h3>
+                    </div>
+                    <table class="w-full text-sm text-left text-gray-500">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">วันที่</th>
+                                <th scope="col" class="px-6 py-3">ซัพพลายเออร์</th>
+                                <th scope="col" class="px-6 py-3">AI แจ้งเตือน</th>
+                                <th scope="col" class="px-6 py-3">ยอดเงิน</th>
+                                <th scope="col" class="px-6 py-3"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-red-50 border-b hover:bg-red-100">
+                                <td class="px-6 py-4">15 ก.ค. 2568</td>
+                                <td class="px-6 py-4 font-medium text-gray-900">บริษัท เอบีซี ปริ้นติ้ง จำกัด</td>
+                                <td class="px-6 py-4">
+                                    <p class="font-semibold text-red-700">อาจเป็นการจ่ายเงินซ้ำซ้อน</p>
+                                    <p class="text-xs">พบ Invoice No. 2025-112 ที่คล้ายกัน</p>
+                                </td>
+                                <td class="px-6 py-4">฿15,200.00</td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="font-medium text-blue-600 hover:underline">ตรวจสอบ</button>
+                                </td>
+                            </tr>
+                             <tr class="bg-yellow-50 border-b hover:bg-yellow-100">
+                                <td class="px-6 py-4">12 ก.ค. 2568</td>
+                                <td class="px-6 py-4 font-medium text-gray-900">บริษัท ขนส่งรวดเร็ว เอ็กซ์เพรส</td>
+                                <td class="px-6 py-4">
+                                    <p class="font-semibold text-yellow-800">ค่าใช้จ่ายสูงกว่าค่าเฉลี่ย 85%</p>
+                                    <p class="text-xs">ค่าเฉลี่ยรายเดือนอยู่ที่ ฿20,000</p>
+                                </td>
+                                <td class="px-6 py-4">฿37,000.00</td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="font-medium text-blue-600 hover:underline">ดูรายละเอียด</button>
+                                </td>
+                            </tr>
+                            <tr class="bg-red-50 border-b hover:bg-red-100">
+                                <td class="px-6 py-4">10 ก.ค. 2568</td>
+                                <td class="px-6 py-4 font-medium text-gray-900">บริษัท เอบีซี ปริ้นติ้ง จำกัด</td>
+                                <td class="px-6 py-4">
+                                    <p class="font-semibold text-red-700">อาจเป็นการจ่ายเงินซ้ำซ้อน</p>
+                                    <p class="text-xs">พบ Invoice No. 2025-112 ที่คล้ายกัน</p>
+                                </td>
+                                <td class="px-6 py-4">฿15,200.00</td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="font-medium text-blue-600 hover:underline">ตรวจสอบ</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Wrap chart generation in window.onload to ensure the DOM is ready
+        window.onload = function() {
+            // Chart.js implementation for Helix AI Insights
+            const spendingTrendCtx = document.getElementById('spendingTrendChart').getContext('2d');
+            const spendingTrendChart = new Chart(spendingTrendCtx, {
+                type: 'line',
+                data: {
+                    labels: ['เม.ย.', 'พ.ค.', 'มิ.ย.'],
+                    datasets: [{
+                        label: 'ค่าใช้จ่าย',
+                        data: [610500, 585400, 650000],
+                        fill: true,
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: false } }
+                }
+            });
+
+            const spendingCategoryCtx = document.getElementById('spendingCategoryChart').getContext('2d');
+            const spendingCategoryChart = new Chart(spendingCategoryCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['การตลาด', 'อุปกรณ์สำนักงาน', 'IT', 'ค่าเดินทาง', 'อื่นๆ'],
+                    datasets: [{
+                        label: 'ค่าใช้จ่าย',
+                        data: [450000, 220000, 310000, 150000, 180000],
+                        backgroundColor: [
+                            'rgba(59, 130, 246, 0.7)',
+                            'rgba(16, 185, 129, 0.7)',
+                            'rgba(234, 179, 8, 0.7)',
+                            'rgba(139, 92, 246, 0.7)',
+                            'rgba(107, 114, 128, 0.7)'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                     scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        };
+    </script>
+
+</body>
+</html>
